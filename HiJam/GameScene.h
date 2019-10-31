@@ -7,6 +7,11 @@ private:
 
 	sf::CircleShape shape;
 
+	sf::Texture backgroundTexture;
+	sf::Sprite backgroundSprite;
+
+	sf::View view;
+
 public:
 	GameScene(sf::RenderWindow * window_);
 	~GameScene();
