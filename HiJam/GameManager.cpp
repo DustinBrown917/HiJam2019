@@ -12,14 +12,14 @@ GameManager::GameManager()
 }
 
 bool GameManager::Initialize() {
-	window = new SFWindow(256, 256, "HiJam");
+	window = new SFWindow(512, 512, "HiJam");
 
 	if (!window->Initialize()) {
 		Destroy();
 		return false;
 	}
 
-	scene = new GameScene(window->getRenderWindow());
+	scene = new GameScene(window->getRenderWindow(), "GrasslandTiles.png");
 	if (!scene->Initialize()){
 		Destroy();
 		return false;

@@ -2,7 +2,11 @@
 #include <iostream>
 
 
-GameScene::GameScene(sf::RenderWindow * window_) : window(window_)
+GameScene::GameScene(sf::RenderWindow * window_) : GameScene(window, "")
+{
+}
+
+GameScene::GameScene(sf::RenderWindow * window_, std::string backgroundTexture) : window(window_), backgroundTextureName(backgroundTexture)
 {
 }
 
@@ -12,19 +16,16 @@ GameScene::~GameScene()
 }
 
 bool GameScene::Initialize() {
-	shape = sf::CircleShape(100.f);
-	shape.setFillColor(sf::Color::Green);
 
 	view.setCenter(sf::Vector2f(1024.f, 1024.f));
 	view.setSize(sf::Vector2f(2048.f, 2048.f));
-
-	if (!backgroundTexture.loadFromFile("GrasslandTiles.png")) {
-		std::cout << "Could not load background image.";
-		Destroy();
-		return false;
+	
+	if (backgroundTextureName != "") {
+		if (!SetBackground(backgroundTextureName)) {
+			Destroy();
+			return false;
+		}
 	}
-
-	backgroundSprite.setTexture(backgroundTexture);
 
 	return true;
 }
@@ -43,7 +44,17 @@ void GameScene::Update() {
 void GameScene::Render() {
 	window->setView(view);
 	window->clear();
-	//window->draw(shape);
 	window->draw(backgroundSprite);
 	window->display();
+}
+
+bool GameScene::SetBackground(std::string textureName)
+{
+	if (!backgroundTexture.loadFromFile(textureName)) {
+		std::cout << "Could not load background image.";
+		return false;
+	}
+
+	backgroundSprite.setTexture(backgroundTexture);
+	return true;
 }
