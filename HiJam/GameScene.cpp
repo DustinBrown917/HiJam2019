@@ -45,7 +45,7 @@ void GameScene::HandleEvents(sf::Event event) const {
 
 void GameScene::Update() {
 	camera->Update();
-	go->setPosition(go->getPosition() + sf::Vector2f(0.f, 0.001f));
+	go->setPosition(go->getPosition() + sf::Vector2f(0.01f, 0.01f));
 }
 
 void GameScene::Render() {

@@ -13,7 +13,7 @@ public:
 	void SetFollowTarget(GameObject *target);
 	bool Initialize();
 	void Destroy();
-	void HandleEvents(sf::Event event) const;
+	void HandleEvents(sf::Event event);
 	void Update();
 	void Render();
 	void SetAsMainView();

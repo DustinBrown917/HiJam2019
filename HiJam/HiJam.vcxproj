@@ -19,14 +19,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="SFWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="GameManager.h" />
+    <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameScene.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Scene.h" />
@@ -95,7 +99,7 @@
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>C:\GameDev\SFML\lib\sfml-window.lib;C:\GameDev\SFML\lib\sfml-system.lib;C:\GameDev\SFML\lib\sfml-graphics.lib;C:\GameDev\SFML\lib\sfml-main.lib;C:\GameDev\SFML\lib\sfml-audio.lib</AdditionalDependencies>
+      <AdditionalDependencies>C:\GameDev\SFML\lib\sfml-window-d.lib;C:\GameDev\SFML\lib\sfml-system-d.lib;C:\GameDev\SFML\lib\sfml-graphics-d.lib;C:\GameDev\SFML\lib\sfml-main-d.lib;C:\GameDev\SFML\lib\sfml-audio-d.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

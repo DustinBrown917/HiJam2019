@@ -8,9 +8,6 @@ class GameObject: public sf::Drawable, public sf::Transformable
 private:
 	std::string m_ID;
 
-protected:
-
-
 public:
 	virtual void InteractWith(GameObject &otherObject);
 	GameObject(std::string ID);
@@ -18,6 +15,7 @@ public:
 
 	// Inherited via Drawable
 	virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const override;
+	inline std::string getID() { return m_ID; }
 };
 
 #endif
