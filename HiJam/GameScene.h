@@ -2,10 +2,14 @@
 #define GAMESCENE_H
 
 #include "Scene.h"
+
 class GameScene : public Scene
 {
+	
 private:
-	sf::RenderWindow * window;
+	class Camera* camera;
+	class GameObject* go;
+	sf::RenderWindow* window;
 
 	sf::Texture backgroundTexture;
 	sf::Sprite backgroundSprite;
@@ -13,8 +17,6 @@ private:
 
 	sf::View view;
 	
-	
-
 public:
 	GameScene(sf::RenderWindow * window_);
 	GameScene(sf::RenderWindow * window_, std::string backgroundTexture);
