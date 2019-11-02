@@ -1,6 +1,8 @@
 #include "GameScene.h"
 #include "Camera.h"
 #include "GameObject.h"
+#include "Entity.h"
+#include "Player.h"
 #include <iostream>
 
 
@@ -10,7 +12,8 @@ GameScene::GameScene(sf::RenderWindow * window_) : GameScene(window, "")
 
 GameScene::GameScene(sf::RenderWindow * window_, std::string backgroundTexture) : window(window_), backgroundTextureName(backgroundTexture)
 {
-	go = new GameObject("go");
+
+	
 }
 
 
@@ -19,10 +22,14 @@ GameScene::~GameScene()
 }
 
 bool GameScene::Initialize() {
+	player = new Player("player");
+	player->LoadTexture("character_placeholder.png");
+
+	
 
 	camera = new Camera(window);
 	camera->SetAsMainView();
-	camera->SetFollowTarget(go);
+	camera->SetFollowTarget(player);
 	
 	if (backgroundTextureName != "") {
 		if (!SetBackground(backgroundTextureName)) {
@@ -45,7 +52,7 @@ void GameScene::HandleEvents(sf::Event event) const {
 
 void GameScene::Update() {
 	camera->Update();
-	go->setPosition(go->getPosition() + sf::Vector2f(0.01f, 0.01f));
+	//player->setPosition(player->getPosition() + sf::Vector2f(0.01f, 0.01f));
 }
 
 void GameScene::Render() {
@@ -53,6 +60,7 @@ void GameScene::Render() {
 	window->clear();
 	camera->Render();
 	window->draw(backgroundSprite);
+	player->draw(*window);
 	window->display();
 }
 

@@ -8,7 +8,7 @@ class GameScene : public Scene
 	
 private:
 	class Camera* camera;
-	class GameObject* go;
+	class Player* player;
 	sf::RenderWindow* window;
 
 	sf::Texture backgroundTexture;

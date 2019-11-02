@@ -12,7 +12,7 @@ GameManager::GameManager()
 }
 
 bool GameManager::Initialize() {
-	window = new SFWindow(512, 512, "HiJam");
+	window = new SFWindow(800, 600, "HiJam");
 
 	if (!window->Initialize()) {
 		Destroy();

@@ -5,8 +5,10 @@
 
 class GameObject: public sf::Drawable, public sf::Transformable
 {
-private:
+protected:
 	std::string m_ID;
+	sf::Texture texture;
+	sf::Sprite sprite;
 
 public:
 	virtual void InteractWith(GameObject &otherObject);
@@ -15,7 +17,10 @@ public:
 
 	// Inherited via Drawable
 	virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const override;
+	virtual void Update();
+	void draw(sf::RenderTarget & target);
 	inline std::string getID() { return m_ID; }
+	void LoadTexture(std::string filename);
 };
 
 #endif
